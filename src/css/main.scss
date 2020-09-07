@@ -1,0 +1,11 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: blue;
+    h1 {
+        span {
+            color: red;
+        }
+        font-size: 4rem;
+    }
+    background-image: url('../img/test.png');
+}
