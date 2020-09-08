@@ -69,7 +69,7 @@ module.exports = {
 		new CopyPlugin({
 			patterns: [
 				{ from: 'img', to: 'img' },
-				// { from: 'fonts', to: 'fonts' }, // enable this line only if you have 'fonts' dir under 'src'
+				// { from: 'fonts', to: 'fonts' },              // -> enable this line only if you have 'fonts' dir under 'src'
 			],
 		}),
 	]
