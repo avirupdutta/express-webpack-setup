@@ -66,10 +66,12 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
 		}),
+
+		// enable this plugin only if you use images or fonts
 		new CopyPlugin({
 			patterns: [
-				{ from: 'img', to: 'img' },
-				// { from: 'fonts', to: 'fonts' },              // -> enable this line only if you have 'fonts' dir under 'src'
+				{ from: 'img', to: 'img' },             // -> enable this line only if you have images dir under 'src/img/'
+				// { from: 'fonts', to: 'fonts' },        // -> enable this line only if you have fonts dir under 'src/fonts/'
 			],
 		}),
 	]
