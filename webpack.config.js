@@ -1,6 +1,7 @@
 const path = require("path");
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	mode: "development",
@@ -32,10 +33,29 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(png|svg|jpg|gif)$/,
-				use: [
-					'file-loader',
-				],
+				test: /\.(png|svg|jpg|gif|jpeg)$/,
+				use: [{
+					loader: 'file-loader',
+					options: {
+						name: '[name].[ext]',
+						outputPath: 'img/',
+						publicPath: 'img/'
+					}
+				}],
+			},
+
+			{
+				test: /\.(woff|woff2|eot|ttf|otf)$/,
+				use: [{
+					loader: 'url-loader',
+					options: {
+						name: '[name].[ext]',
+						limit: 10000,
+						mimetype: 'application/font-ttf',
+						outputPath: 'fonts/',
+						publicPath: 'fonts/'
+					}
+				}],
 			},
 		]
 	},
@@ -45,6 +65,12 @@ module.exports = {
 		}),
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
-		})
+		}),
+		new CopyPlugin({
+			patterns: [
+				{ from: 'img', to: 'img' },
+				// { from: 'fonts', to: 'fonts' }, // enable this line only if you have 'fonts' dir under 'src'
+			],
+		}),
 	]
 };

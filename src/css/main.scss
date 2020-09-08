@@ -1,11 +1,19 @@
+// @import url('../fonts/Roboto-Regular.ttf');
+
+// Material icons start
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+// Material icons end
+
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: blue;
+    font-family: Roboto, serif; //Helvetica, sans-serif, serif;
+    color: orange;
     h1 {
-        span {
-            color: red;
-        }
         font-size: 4rem;
     }
-    background-image: url('../img/test.png');
+    // background-image: url('../img/mysvg.svg');
+}
+
+p {
+    color: indigo;
 }
